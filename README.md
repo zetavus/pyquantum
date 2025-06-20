@@ -1,6 +1,18 @@
 # PyQuantum
 
+<div align="center">
+
+![PyQuantum Logo](https://img.shields.io/badge/PyQuantum-v0.2.0-blue?style=for-the-badge&logo=atom)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red?style=for-the-badge&logo=pytorch)](https://pytorch.org/)
+[![Python](https://img.shields.io/badge/Python-3.7+-green?style=for-the-badge&logo=python)](https://www.python.org/)
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github)](https://github.com/zetavus/pyquantum)
+
 **PyTorch 스타일의 직관적인 양자 시뮬레이터 프레임워크**
+
+[![GitHub Stars](https://img.shields.io/github/stars/zetavus/pyquantum?style=social&logo=github)](https://github.com/zetavus/pyquantum/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/zetavus/pyquantum?style=social&logo=github)](https://github.com/zetavus/pyquantum/network/members)
+
+</div>
 
 > **목표**: 누구나 5분 만에 양자 얽힘을 경험할 수 있는 세상
 
@@ -217,30 +229,6 @@ def bell_inequality_test():
 bell_inequality_test()
 ```
 
-## 프로젝트 구조
-
-```
-pyquantum/
-├── README.md                    # 이 파일
-├── requirements.txt             # 의존성
-├── setup.py                     # 패키지 설정
-├── pyquantum/                   # 메인 패키지
-│   ├── __init__.py             # API 통합
-│   ├── qubit.py                # 큐비트 상태 클래스
-│   ├── gates.py                # 양자 게이트들
-│   └── circuit.py              # 양자 회로 클래스
-├── examples/                    # 예제 코드
-│   ├── bell_state.py           # 벨 상태 실험
-│   ├── basic_gates.py          # 기본 게이트 사용법
-│   └── quantum_teleportation.py # 양자 순간이동
-├── tests/                       # 테스트 코드
-│   ├── test_basic.py           # 기본 기능 테스트
-│   ├── test_gates.py           # 게이트 테스트
-│   └── test_circuit.py         # 회로 테스트
-└── docs/                        # 문서
-    ├── ko/                     # 한글 문서
-    └── tutorial/               # 튜토리얼
-```
 
 ## 테스트 실행
 
@@ -257,43 +245,6 @@ python examples/bell_state.py
 # 인터랙티브 실험
 python examples/bell_state.py --interactive
 ```
-
-## 성능 벤치마크
-
-| 항목 | PyQuantum | Qiskit | 비고 |
-|------|-----------|--------|------|
-| 벨 상태 생성 | **0.5ms** | 2.1ms | 4배 빠름 |
-| 4큐비트 회로 | **1.2ms** | 3.8ms | 3배 빠름 |
-| 1000회 측정 | **15ms** | 45ms | GPU 가속 |
-| 메모리 사용량 | **30% 적음** | 기준 | 효율적 구현 |
-
-*테스트 환경: Python 3.9, PyTorch 2.0, CUDA 11.8*
-
-## 교육 자료
-
-### 튜토리얼 (한글)
-- [5분 만에 양자컴퓨팅 시작하기](docs/ko/quickstart.md)
-- [양자 얽힘 이해하기](docs/ko/entanglement.md)
-- [양자 게이트 완전 정복](docs/ko/gates.md)
-- [양자 측정의 모든 것](docs/ko/measurement.md)
-
-### 인터랙티브 예제
-```bash
-# 양자 상태 실험실
-python examples/quantum_lab.py
-
-# 벨 부등식 시뮬레이터
-python examples/bell_inequality.py
-
-# 양자 텔레포테이션 데모
-python examples/teleportation_demo.py
-```
-
-### 교육자용 자료
-- 수업용 슬라이드 (PowerPoint, PDF)
-- 실습 과제 템플릿
-- 학생 평가 도구
-- 개념 설명 영상 (유튜브)
 
 ## PyQuantum을 선택해야 하는 이유
 
@@ -397,26 +348,26 @@ python examples/teleportation_demo.py
 
 ## 로드맵
 
-### Phase 1 (현재)
+### Phase 1 
 - [x] 기본 큐비트 상태 구현
 - [x] 주요 양자 게이트 (H, X, Y, Z, CNOT, 회전 게이트)
 - [x] 체이닝 API 설계
 - [x] 측정 및 샘플링
 - [x] PyTorch GPU 지원
 
-### Phase 2 (진행 중)
+### Phase 2 
 - [ ] PyTorch `nn.Module` 통합
 - [ ] 양자 신경망 레이어
 - [ ] 자동 미분 지원
 - [ ] 하이브리드 모델 예제
 
-### Phase 3 (계획)
+### Phase 3 
 - [ ] 시각화 도구 (블로흐 구면, 회로 다이어그램)
 - [ ] 노이즈 모델
 - [ ] 더 많은 게이트 (Toffoli, Fredkin 등)
 - [ ] 양자 알고리즘 라이브러리
 
-### Phase 4 (미래)
+### Phase 4 
 - [ ] 실제 양자 하드웨어 연결
 - [ ] 양자 오류 정정
 - [ ] 고급 양자 알고리즘 (Shor, Grover 등)
@@ -452,10 +403,10 @@ python examples/teleportation_demo.py
 PyQuantum을 연구에 사용하셨다면 다음과 같이 인용해주세요:
 
 ```bibtex
-@software{pyquantum2024,
+@software{pyquantum2025,
   title={PyQuantum: PyTorch-native Quantum Computing Library},
-  author={PyQuantum Team},
-  year={2024},
+  author={zetavus PyQuantum Team},
+  year={2025},
   url={https://github.com/zetavus/pyquantum}
 }
 ```
