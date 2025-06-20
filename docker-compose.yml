@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  pyquantum:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pyquantum-dev
+    hostname: pyquantum
+    
+    # GPU support (NVIDIA Docker runtime required)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    # Environment variables
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/workspace
+      - JUPYTER_ENABLE_LAB=yes
+    
+    # Port mapping
+    ports:
+      - "8888:8888"    # Jupyter Lab
+      - "6006:6006"    # TensorBoard
+    
+    # Volume mounts
+    volumes:
+      - .:/workspace
+      - ./notebooks:/workspace/notebooks
+      - ./experiments:/workspace/experiments
+      - ./results:/workspace/results
+      - pyquantum_data:/data
+    
+    # Working directory
+    working_dir: /workspace
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Restart policy
+    restart: unless-stopped
+
+  # Jupyter service (alternative to running in main container)
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pyquantum-jupyter
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    ports:
+      - "8889:8888"
+    
+    volumes:
+      - .:/workspace
+      - ./notebooks:/workspace/notebooks
+    
+    command: >
+      bash -c "
+        jupyter lab 
+        --ip=0.0.0.0 
+        --port=8888 
+        --allow-root 
+        --no-browser 
+        --notebook-dir=/workspace 
+        --ServerApp.token='' 
+        --ServerApp.password=''
+      "
+    
+    profiles:
+      - jupyter
+
+volumes:
+  pyquantum_data:
+    driver: local

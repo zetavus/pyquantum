@@ -1,0 +1,20 @@
+# PyQuantum Core Dependencies
+torch>=1.8.0
+numpy>=1.19.0
+matplotlib>=3.3.0
+scipy>=1.6.0
+
+# Optional dependencies for enhanced functionality
+tensorboard>=2.4.0
+tqdm>=4.60.0
+pandas>=1.2.0
+
+# Development dependencies (install with: pip install -e ".[dev]")
+# pytest>=6.0.0
+# pytest-cov>=2.10.0
+# black>=21.0.0
+# flake8>=3.8.0
+# mypy>=0.800
+# jupyterlab>=3.0.0
+# sphinx>=4.0.0
+# sphinx-rtd-theme>=0.5.0
