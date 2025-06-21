@@ -394,7 +394,7 @@ python examples/bell_state.py --interactive
 ## 지원 및 커뮤니티
 
 ### 도움이 필요하다면
-- 이메일: pyquantum@example.com
+- 이메일: hspark@zetavus.com
 - Discord: [PyQuantum 커뮤니티](https://discord.gg/pyquantum)
 - 버그 리포트: [GitHub Issues](https://github.com/zetavus/pyquantum/issues)
 - 문서: [공식 문서](https://pyquantum.readthedocs.io)
